@@ -1,0 +1,13 @@
+io\altar\stockMaven\repositories\ShelfRepository.class
+io\altar\stockMaven\models\Shelf.class
+io\altar\stockMaven\controller\ShelfController.class
+io\altar\stockMaven\models\Entity2_.class
+io\altar\stockMaven\controller\EntityController.class
+io\altar\stockMaven\service\ProductService.class
+io\altar\stockMaven\controller\ProductController.class
+io\altar\stockMaven\service\ShelfService.class
+io\altar\stockMaven\service\EntityService.class
+io\altar\stockMaven\repositories\ProductRepository.class
+io\altar\stockMaven\models\Product.class
+io\altar\stockMaven\App.class
+io\altar\stockMaven\repositories\EntityRepository.class

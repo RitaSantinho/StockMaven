@@ -27,6 +27,6 @@ public abstract class EntityService<R extends EntityRepository<E>, E extends Ent
 	}
 
 	public void removeEntity(long id) {
-		 repository.removeEntity(id);
+		repository.removeEntity(id);
 	}
 }

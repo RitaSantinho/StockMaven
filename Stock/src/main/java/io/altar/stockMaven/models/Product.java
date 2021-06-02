@@ -6,14 +6,12 @@ import javax.persistence.NamedQuery;
 
 @Entity
 @NamedQueries({ @NamedQuery(name = Product.GET_ALL_PRODUCTS, query = "SELECT p FROM Product p"),
-		@NamedQuery(name = Product.HOW_MANY_PRODUCTS, query = "SELECT COUNT (p.id) FROM Product p"),
-		@NamedQuery(name = Product.GET_PRODUCTS_BY_DISCOUNT, query = "SELECT p FROM Product p WHERE p.discount= :pDiscount") })
+		@NamedQuery(name = Product.HOW_MANY_PRODUCTS, query = "SELECT COUNT (p.id) FROM Product p") })
 public class Product extends Entity2_ {
 
 	private static final long serialVersionUID = 1L;
 	public static final String HOW_MANY_PRODUCTS = "howManyProducts";
 	public static final String GET_ALL_PRODUCTS = "getAllProducts";
-	public static final String GET_PRODUCTS_BY_DISCOUNT = "getProductsByDiscount";
 
 	private int iva;
 	private float pvp;

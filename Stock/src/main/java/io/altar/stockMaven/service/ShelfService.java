@@ -47,4 +47,16 @@ public class ShelfService extends EntityService<ShelfRepository, Shelf> {
 	public void remProductFromShelves(long productId) {
 		repository.remProductFromShelves(productId);
 	}
+
+	public List<Shelf> getShelvesOrderedByKeyAsc(String key) throws Exception {
+		return repository.getShelvesOrderedByKeyAsc(key);
+	}
+
+	public List<Shelf> getShelvesOrderedByKeyDesc(String key) throws Exception {
+		return repository.getShelvesOrderedByKeyDesc(key);
+	}
+
+	public List<Shelf> getShelvesByKeyValue(float keyValue, String key) throws Exception {
+		return repository.getShelvesByKeyValue(keyValue, key);
+	}
 }

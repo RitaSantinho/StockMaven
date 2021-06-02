@@ -27,6 +27,6 @@ public abstract class EntityRepository<E extends Entity2_> {
 
 	public void removeEntity(long id) {
 		E e = eManager.find(getEntityClass(), id);
-		 eManager.remove(e);
+		eManager.remove(e);
 	}
 }

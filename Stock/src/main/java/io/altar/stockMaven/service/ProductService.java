@@ -57,7 +57,15 @@ public class ProductService extends EntityService<ProductRepository, Product> {
 		removeProductFromShelves(shelvesIds);
 	}
 
-	public List<Product> getProductsByDiscount(float pDiscount) {
-		return repository.getProductsByDiscount(pDiscount);
+	public List<Product> getProductsOrderedByKeyAsc(String key) throws Exception {
+		return repository.getProductsOrderedByKeyAsc(key);
+	}
+
+	public List<Product> getProductsOrderedByKeyDesc(String key) throws Exception {
+		return repository.getProductsOrderedByKeyDesc(key);
+	}
+
+	public List<Product> getProductsByKeyValue(float keyValue, String key) throws Exception {
+		return repository.getProductsByKeyValue(keyValue, key);
 	}
 }

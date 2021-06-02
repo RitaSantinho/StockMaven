@@ -22,9 +22,33 @@ public class ProductRepository extends EntityRepository<Product> {
 		return eManager.createNamedQuery("howManyProducts", Long.class).getSingleResult();
 	}
 
-	public List<Product> getProductsByDiscount(float pDiscount) {
-		return eManager.createNamedQuery("getProductsByDiscount", getEntityClass()).setParameter("pDiscount", pDiscount)
-				.getResultList();
+	@SuppressWarnings("unchecked")
+	public List<Product> getProductsOrderedByKeyAsc(String key) throws Exception {
+		if (key.equals("pvp") || key.equals("discount") || key.equals("iva")) {
+			String query = "SELECT p FROM Product p ORDER BY p." + key + " ASC";
+			return eManager.createQuery(query).getResultList();
+		} else {
+			throw new IllegalArgumentException("Invalid key");
+		}
 	}
 
+	@SuppressWarnings("unchecked")
+	public List<Product> getProductsOrderedByKeyDesc(String key) throws Exception {
+		if (key.equals("pvp") || key.equals("discount") || key.equals("iva")) {
+			String query = "SELECT p FROM Product p ORDER BY p." + key + " DESC";
+			return eManager.createQuery(query).getResultList();
+		} else {
+			throw new IllegalArgumentException("Invalid key");
+		}
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<Product> getProductsByKeyValue(float keyValue, String key) throws Exception {
+		if (key.equals("pvp") || key.equals("iva") || key.equals("discount")) {
+			String query = "SELECT p FROM Product p WHERE p." + key + " = " + keyValue;
+			return eManager.createQuery(query).getResultList();
+		} else {
+			throw new IllegalArgumentException("Invalid key");
+		}
+	}
 }

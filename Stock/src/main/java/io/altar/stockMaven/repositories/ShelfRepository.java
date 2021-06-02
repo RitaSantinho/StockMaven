@@ -35,4 +35,34 @@ public class ShelfRepository extends EntityRepository<Shelf> {
 	public void remProductFromShelves(long productId) {
 		eManager.createNamedQuery("remProductFromShelves").setParameter("productId", productId).executeUpdate();
 	}
+
+	@SuppressWarnings("unchecked")
+	public List<Shelf> getShelvesByKeyValue(float keyValue, String key) throws Exception {
+		if (key.equals("capacity") || key.equals("price")) {
+			String query = "SELECT s FROM Shelf s WHERE s." + key + " = " + keyValue;
+			return eManager.createQuery(query).getResultList();
+		} else {
+			throw new IllegalArgumentException("Invalid key");
+		}
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<Shelf> getShelvesOrderedByKeyAsc(String key) throws Exception {
+		if (key.equals("capacity") || key.equals("price")) {
+			String query = "SELECT s FROM Shelf s ORDER BY s." + key + " ASC";
+			return eManager.createQuery(query).getResultList();
+		} else {
+			throw new IllegalArgumentException("Invalid key");
+		}
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<Shelf> getShelvesOrderedByKeyDesc(String key) throws Exception {
+		if (key.equals("capacity") || key.equals("price")) {
+			String query = "SELECT s FROM Shelf s ORDER BY s." + key + " DESC";
+			return eManager.createQuery(query).getResultList();
+		} else {
+			throw new IllegalArgumentException("Invalid key");
+		}
+	}
 }

@@ -10,10 +10,7 @@ import javax.persistence.NamedQuery;
 		@NamedQuery(name = Shelf.GET_SHELVES_COUNT, query = "SELECT COUNT(s.id) FROM Shelf s"),
 		@NamedQuery(name = Shelf.FIND_EMPTY_SHELVES, query = "SELECT s FROM Shelf s WHERE s.product = null"),
 		@NamedQuery(name = Shelf.FIND_BY_PRODUCT_ID, query = "SELECT s FROM Shelf s WHERE s.product.id = :id"),
-		@NamedQuery(name = Shelf.SET_SHELF_PRODUCT_TO_NULL, query = "UPDATE Shelf s SET s.product = null WHERE s.product.id= :productId"),
-// @NamedQuery(name=Shelf.UPDATE_PRODUCT,
-// query="UPDATE Shelf s SET s.product = null WHERE s.product.id= :productId")
-})
+		@NamedQuery(name = Shelf.SET_SHELF_PRODUCT_TO_NULL, query = "UPDATE Shelf s SET s.product = null WHERE s.product.id= :productId"), })
 public class Shelf extends Entity2_ {
 
 	private static final long serialVersionUID = 1L;
@@ -22,6 +19,7 @@ public class Shelf extends Entity2_ {
 	public static final String FIND_EMPTY_SHELVES = "getEmptyShelves";
 	public static final String FIND_BY_PRODUCT_ID = "getShelvesByProductId";
 	public static final String SET_SHELF_PRODUCT_TO_NULL = "remProductFromShelves";
+
 	private int capacity;
 	@ManyToOne
 	private Product product;

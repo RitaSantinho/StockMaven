@@ -12,7 +12,7 @@ public abstract class EntityService<R extends EntityRepository<E>, E extends Ent
 	@Inject
 	protected R repository;
 
-	public long addEntity(E e) {
+	public E addEntity(E e) {
 
 		return repository.addEntity(e);
 

@@ -29,7 +29,8 @@ public abstract class EntityController<S extends EntityService<R, E>, R extends 
 		String error = validateEntity(entity);
 		System.out.println(error);
 		if (error.equals("")) {
-			return Response.ok(service.addEntity(entity)).build();
+			E e=service.addEntity(entity);
+			return Response.ok().entity(e).build();
 		} else {
 			return Response.status(422).entity(error).build();
 		}

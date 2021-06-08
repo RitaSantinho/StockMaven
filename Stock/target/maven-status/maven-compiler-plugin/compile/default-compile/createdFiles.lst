@@ -7,6 +7,7 @@ io\altar\stockMaven\service\ProductService.class
 io\altar\stockMaven\controller\ProductController.class
 io\altar\stockMaven\service\ShelfService.class
 io\altar\stockMaven\service\EntityService.class
+io\altar\stockMaven\filters\CORSFilter.class
 io\altar\stockMaven\repositories\ProductRepository.class
 io\altar\stockMaven\models\Product.class
 io\altar\stockMaven\App.class

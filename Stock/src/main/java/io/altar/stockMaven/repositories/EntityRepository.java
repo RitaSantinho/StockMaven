@@ -12,9 +12,9 @@ public abstract class EntityRepository<E extends Entity2_> {
 
 	protected abstract Class<E> getEntityClass();
 
-	public long addEntity(E e) {
-		eManager.merge(e);
-		return e.getId();
+	public E addEntity(E e) {
+		return eManager.merge(e);
+		
 	}
 
 	public E getEntity(long id) {
